@@ -67,7 +67,7 @@ def novograd_optimizer(
     weight_decay: float = 0.0,
     weight_decay_mask: Optional[MaskOrFn] = None,
     gradient_norm_clip: Optional[float] = None,
-) -> base.Optimizer:
+) -> optax.GradientTransformation:
     if gradient_norm_clip:
         chain = [optax.clip_by_global_norm(gradient_norm_clip)]
     else:
